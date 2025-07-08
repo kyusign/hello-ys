@@ -1,0 +1,9 @@
+{
+  "google_client_id": "YOUR_CLIENT_ID",
+  "google_client_secret": "YOUR_SECRET",
+  "instagram_client_id": "IG_ID",
+  "instagram_client_secret": "IG_SECRET",
+  "tiktok_client_key": "TT_KEY",
+  "tiktok_client_secret": "TT_SECRET",
+  "spreadsheet_id": "SPREADSHEET_ID"
+}
