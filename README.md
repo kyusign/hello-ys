@@ -7,7 +7,7 @@ This project collects daily view counts from YouTube, TikTok and Instagram chann
 Install dependencies first:
 
 ```bash
-pip install typer apscheduler matplotlib tkinter
+pip install -r requirements.txt
 ```
 
 To launch the GUI, run one of:
@@ -28,7 +28,7 @@ You can also execute the script directly:
 python sns_dashboard/main.py setup
 ```
 
-Running `python sns_dashboard/main.py` without any arguments will launch the setup window on first run. If `config.json` already exists and is filled out, the scheduler starts automatically instead.
+Running `python sns_dashboard/main.py` without any arguments will launch the setup window on first run. If `config.json` already exists and is filled out, the scheduler starts automatically instead. You can also run `python -m sns_dashboard` for the same behavior.
 
 If packaged as an executable, you can invoke the setup with:
 
