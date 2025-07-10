@@ -10,7 +10,13 @@ Install dependencies first:
 pip install typer tkinter
 ```
 
-To launch the GUI, run:
+To launch the GUI, run one of:
+
+```bash
+python -m sns_dashboard setup
+```
+
+or
 
 ```bash
 python -m sns_dashboard.main setup
