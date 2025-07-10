@@ -49,9 +49,7 @@ if __name__ == '__main__':
     if len(sys.argv) == 1:
         cfg = load_config() if config_exists() else None
         if cfg is None or not is_config_complete(cfg):
-            # First run or incomplete config -> launch setup GUI
             sys.argv.append('setup')
         else:
-            # Auto-start scheduler when configuration is present
             sys.argv.append('run')
     app()

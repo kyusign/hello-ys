@@ -55,15 +55,15 @@ class SetupGUI:
             if key.startswith('rate_'):
                 continue
             data[key] = entry.get().strip()
-        # rates nested structure
-        rates = data.get("rates", {})
-        rates["youtube"] = float(self.entries["rate_youtube"].get() or 0)
-        rates["tiktok"] = float(self.entries["rate_tiktok"].get() or 0)
-        rates["instagram"] = float(self.entries["rate_instagram"].get() or 0)
-        data["rates"] = rates
+        rates = data.get('rates', {})
+        rates['youtube'] = float(self.entries['rate_youtube'].get() or 0)
+        rates['tiktok'] = float(self.entries['rate_tiktok'].get() or 0)
+        rates['instagram'] = float(self.entries['rate_instagram'].get() or 0)
+        data['rates'] = rates
         save_config(data)
         messagebox.showinfo('Saved', 'Configuration saved.')
         get_token()
+
 
 def run():
     root = tk.Tk()
