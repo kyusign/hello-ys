@@ -28,6 +28,9 @@ You can also execute the script directly:
 python sns_dashboard/main.py setup
 ```
 
+Running `python sns_dashboard/main.py` without any arguments will default to
+launching the setup window as well.
+
 If packaged as an executable, you can invoke the setup with:
 
 ```bash

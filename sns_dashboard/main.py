@@ -24,4 +24,8 @@ def setup() -> None:
 
 
 if __name__ == '__main__':
+    if len(sys.argv) == 1:
+        # Allow running `python sns_dashboard/main.py` directly
+        # by defaulting to the setup command when no arguments are given.
+        sys.argv.append('setup')
     app()
