@@ -5,5 +5,13 @@
   "instagram_client_secret": "",
   "tiktok_client_key": "",
   "tiktok_client_secret": "",
-  "spreadsheet_id": ""
+  "spreadsheet_id": "",
+  "youtube_url": "",
+  "tiktok_url": "",
+  "instagram_url": "",
+  "rates": {
+    "youtube": 0,
+    "tiktok": 0,
+    "instagram": 0
+  }
 }

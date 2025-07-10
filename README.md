@@ -1,13 +1,13 @@
 # SNS Dashboard
 
-This project provides a simple GUI setup tool for storing API credentials for Google, Instagram, TikTok and a spreadsheet. The credentials are saved in `config.json` and can be used by other parts of the application.
+This project collects daily view counts from YouTube, TikTok and Instagram channels and computes estimated revenue. Credentials and channel information are stored in `config.json` through a small Tkinter GUI.
 
 ## Usage
 
 Install dependencies first:
 
 ```bash
-pip install typer tkinter
+pip install typer apscheduler matplotlib tkinter
 ```
 
 To launch the GUI, run one of:
@@ -39,6 +39,8 @@ sns-dashboard.exe setup
 
 Fill out each field in the window and press **Save**. The configuration will be written to `config.json` and an initial authentication step will run.
 
+Fields include API credentials, channel URLs and CPM rates for each platform.
+
 ## Scheduled Data Collection
 
 After completing the setup you can start a background process that collects
@@ -48,5 +50,10 @@ data each day at midnight:
 python -m sns_dashboard run
 ```
 
-This command runs indefinitely, waking up at 00:00 every day to execute the
-data collection routine.
+This command initializes the SQLite database and schedules a fetch job every day at 00:00.
+
+Collected data can be visualized with:
+
+```bash
+python -m sns_dashboard plot
+```

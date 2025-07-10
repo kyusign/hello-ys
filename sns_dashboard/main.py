@@ -1,15 +1,15 @@
 import os
 import sys
+import time
 import typer
 
 if __package__ is None or __package__ == "":
-    # Adjust path so absolute imports work when running directly
     sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 from sns_dashboard.gui import run as run_gui
-from sns_dashboard.tasks import fetch_data
-import time
-from datetime import datetime, timedelta
+from sns_dashboard.scheduler import start as start_scheduler
+from sns_dashboard.viz import plot_views
+from sns_dashboard.db import init_db
 
 app = typer.Typer(help='SNS Dashboard Command Line Interface')
 
@@ -28,12 +28,20 @@ def setup() -> None:
 
 @app.command()
 def run() -> None:
-    """Fetch data every day at midnight."""
-    while True:
-        now = datetime.now()
-        next_midnight = (now + timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
-        time.sleep((next_midnight - now).total_seconds())
-        fetch_data()
+    """Start scheduler for daily data fetch."""
+    init_db()
+    start_scheduler()
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        pass
+
+
+@app.command()
+def plot() -> None:
+    """Display a simple plot of collected views."""
+    plot_views()
 
 
 if __name__ == '__main__':
