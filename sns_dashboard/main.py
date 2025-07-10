@@ -1,6 +1,12 @@
+import os
+import sys
 import typer
 
-from .gui import run as run_gui
+if __package__ is None or __package__ == "":
+    # Adjust path so absolute imports work when running directly
+    sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
+from sns_dashboard.gui import run as run_gui
 
 app = typer.Typer(help='SNS Dashboard Command Line Interface')
 

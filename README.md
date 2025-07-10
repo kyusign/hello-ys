@@ -22,6 +22,12 @@ or
 python -m sns_dashboard.main setup
 ```
 
+You can also execute the script directly:
+
+```bash
+python sns_dashboard/main.py setup
+```
+
 If packaged as an executable, you can invoke the setup with:
 
 ```bash
