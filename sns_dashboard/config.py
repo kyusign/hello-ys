@@ -23,6 +23,27 @@ DEFAULT_CONFIG = {
 }
 
 
+def config_exists() -> bool:
+    """Return True if the configuration file exists."""
+    return os.path.exists(CONFIG_PATH)
+
+
+def is_config_complete(cfg: Dict[str, Any]) -> bool:
+    required = [
+        "google_client_id",
+        "google_client_secret",
+        "instagram_client_id",
+        "instagram_client_secret",
+        "tiktok_client_key",
+        "tiktok_client_secret",
+        "spreadsheet_id",
+        "youtube_url",
+        "tiktok_url",
+        "instagram_url",
+    ]
+    return all(cfg.get(k) for k in required)
+
+
 def load_config() -> Dict[str, Any]:
     if not os.path.exists(CONFIG_PATH):
         return DEFAULT_CONFIG.copy()

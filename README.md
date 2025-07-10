@@ -28,8 +28,9 @@ You can also execute the script directly:
 python sns_dashboard/main.py setup
 ```
 
-Running `python sns_dashboard/main.py` without any arguments will default to
-launching the setup window as well.
+Running `python sns_dashboard/main.py` without any arguments will launch the
+setup window on first run. If `config.json` already exists and is filled out,
+the scheduler starts automatically instead.
 
 If packaged as an executable, you can invoke the setup with:
 
@@ -51,6 +52,14 @@ python -m sns_dashboard run
 ```
 
 This command initializes the SQLite database and schedules a fetch job every day at 00:00.
+
+If the configuration file already exists, you can simply run:
+
+```bash
+python -m sns_dashboard
+```
+
+or run the packaged executable to start the scheduler immediately.
 
 Collected data can be visualized with:
 

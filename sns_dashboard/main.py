@@ -10,6 +10,7 @@ from sns_dashboard.gui import run as run_gui
 from sns_dashboard.scheduler import start as start_scheduler
 from sns_dashboard.viz import plot_views
 from sns_dashboard.db import init_db
+from sns_dashboard.config import load_config, config_exists, is_config_complete
 
 app = typer.Typer(help='SNS Dashboard Command Line Interface')
 
@@ -46,7 +47,11 @@ def plot() -> None:
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:
-        # Allow running `python sns_dashboard/main.py` directly
-        # by defaulting to the setup command when no arguments are given.
-        sys.argv.append('setup')
+        cfg = load_config() if config_exists() else None
+        if cfg is None or not is_config_complete(cfg):
+            # First run or incomplete config -> launch setup GUI
+            sys.argv.append('setup')
+        else:
+            # Auto-start scheduler when configuration is present
+            sys.argv.append('run')
     app()
