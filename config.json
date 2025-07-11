@@ -1,0 +1,10 @@
+{
+  "youtube_url": "",
+  "tiktok_url": "",
+  "instagram_url": "",
+  "rates": {
+    "youtube": 0.1,
+    "tiktok": 0.1,
+    "instagram": 0.1
+  }
+}
