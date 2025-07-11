@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import messagebox
 
 from .config import load_config, save_config
-from .auth import get_token
 
 
 class SetupGUI:
@@ -12,13 +11,6 @@ class SetupGUI:
 
         self.entries = {}
         fields = [
-            ("Google Client ID", "google_client_id"),
-            ("Google Client Secret", "google_client_secret"),
-            ("Instagram Client ID", "instagram_client_id"),
-            ("Instagram Client Secret", "instagram_client_secret"),
-            ("TikTok Client Key", "tiktok_client_key"),
-            ("TikTok Client Secret", "tiktok_client_secret"),
-            ("Spreadsheet ID", "spreadsheet_id"),
             ("YouTube Channel URL", "youtube_url"),
             ("TikTok Channel URL", "tiktok_url"),
             ("Instagram Channel URL", "instagram_url"),
@@ -62,7 +54,6 @@ class SetupGUI:
         data["rates"] = rates
         save_config(data)
         messagebox.showinfo("Saved", "Configuration saved.")
-        get_token()
 
 
 def run():
