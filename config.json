@@ -1,17 +1,10 @@
 {
-  "google_client_id": "",
-  "google_client_secret": "",
-  "instagram_client_id": "",
-  "instagram_client_secret": "",
-  "tiktok_client_key": "",
-  "tiktok_client_secret": "",
-  "spreadsheet_id": "",
-  "youtube_url": "https://www.youtube.com/channel/UC1asBU3fnUCvzV-fDTuQjsw",
-  "tiktok_url": "https://www.tiktok.com/@loltimeflew",
-  "instagram_url": "https://www.instagram.com/toto.mysticalstory/",
+  "youtube_url": "",
+  "tiktok_url": "",
+  "instagram_url": "",
   "rates": {
-    "youtube": 0.1,
-    "tiktok": 0.1,
-    "instagram": 0.1
+    "youtube": 0.0,
+    "tiktok": 0.0,
+    "instagram": 0.0
   }
 }
