@@ -6,12 +6,12 @@
   "tiktok_client_key": "",
   "tiktok_client_secret": "",
   "spreadsheet_id": "",
-  "youtube_url": "",
-  "tiktok_url": "",
-  "instagram_url": "",
+  "youtube_url": "https://www.youtube.com/channel/UC1asBU3fnUCvzV-fDTuQjsw",
+  "tiktok_url": "https://www.tiktok.com/@loltimeflew",
+  "instagram_url": "https://www.instagram.com/toto.mysticalstory/",
   "rates": {
-    "youtube": 0,
-    "tiktok": 0,
-    "instagram": 0
+    "youtube": 0.1,
+    "tiktok": 0.1,
+    "instagram": 0.1
   }
 }
