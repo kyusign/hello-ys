@@ -36,7 +36,7 @@ If packaged as an executable, you can invoke the setup with:
 sns-dashboard.exe setup
 ```
 
-Fill out each field in the window and press **Save**. The configuration will be written to `config.json` and an initial authentication step will run. Fields include API credentials, channel URLs and CPM rates for each platform.
+Enter your channel URLs for YouTube, TikTok and Instagram and press **Save**. The configuration will be written to `config.json` and an initial authentication step will run.
 
 ## Scheduled Data Collection
 
