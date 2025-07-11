@@ -5,6 +5,13 @@ from typing import Any, Dict
 CONFIG_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "config.json")
 
 DEFAULT_CONFIG = {
+    "google_client_id": "",
+    "google_client_secret": "",
+    "instagram_client_id": "",
+    "instagram_client_secret": "",
+    "tiktok_client_key": "",
+    "tiktok_client_secret": "",
+    "spreadsheet_id": "",
     "youtube_url": "",
     "tiktok_url": "",
     "instagram_url": "",
@@ -22,8 +29,19 @@ def config_exists() -> bool:
 
 
 def is_config_complete(cfg: Dict[str, Any]) -> bool:
-    """Return True if required channel URLs are provided."""
-    required = ["youtube_url", "tiktok_url", "instagram_url"]
+    """Return True if all credential and URL fields are provided."""
+    required = [
+        "google_client_id",
+        "google_client_secret",
+        "instagram_client_id",
+        "instagram_client_secret",
+        "tiktok_client_key",
+        "tiktok_client_secret",
+        "spreadsheet_id",
+        "youtube_url",
+        "tiktok_url",
+        "instagram_url",
+    ]
     return all(cfg.get(k) for k in required)
 
 

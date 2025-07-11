@@ -1,6 +1,6 @@
 # SNS Dashboard
 
-This project collects daily view counts from YouTube, TikTok and Instagram channels and computes estimated revenue. Channel URLs and CPM rates are stored in `config.json` through a small Tkinter GUI.
+This project collects daily view counts from YouTube, TikTok and Instagram channels and computes estimated revenue. A small Tkinter GUI lets you enter API credentials, channel URLs and CPM rates which are saved to `config.json`.
 
 ## Usage
 
@@ -36,7 +36,7 @@ If packaged as an executable, you can invoke the setup with:
 sns-dashboard.exe setup
 ```
 
-Fill in the three channel URLs and optionally adjust the CPM rates, then press **Save**. The configuration will be written to `config.json`.
+Fill in each credential field along with the three channel URLs and optional CPM rates, then press **Save**. The configuration will be written to `config.json` and an initial authentication step will run.
 
 ## Scheduled Data Collection
 
