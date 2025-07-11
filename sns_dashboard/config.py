@@ -5,6 +5,13 @@ from typing import Any, Dict
 CONFIG_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "config.json")
 
 DEFAULT_CONFIG = {
+    "google_client_id": "",
+    "google_client_secret": "",
+    "instagram_client_id": "",
+    "instagram_client_secret": "",
+    "tiktok_client_key": "",
+    "tiktok_client_secret": "",
+    "spreadsheet_id": "",
     "youtube_url": "",
     "tiktok_url": "",
     "instagram_url": "",
@@ -23,6 +30,13 @@ def config_exists() -> bool:
 
 def is_config_complete(cfg: Dict[str, Any]) -> bool:
     required = [
+        "google_client_id",
+        "google_client_secret",
+        "instagram_client_id",
+        "instagram_client_secret",
+        "tiktok_client_key",
+        "tiktok_client_secret",
+        "spreadsheet_id",
         "youtube_url",
         "tiktok_url",
         "instagram_url",
