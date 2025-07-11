@@ -1,10 +1,10 @@
 {
-  "youtube_url": "",
-  "tiktok_url": "",
-  "instagram_url": "",
+  "youtube_url": "<https://www.youtube.com/channel/XXXX>",
+  "tiktok_url":  "<https://www.tiktok.com/@YYYY>",
+  "instagram_url": "<https://www.instagram.com/ZZZZ>",
   "rates": {
-    "youtube": 0.0,
-    "tiktok": 0.0,
-    "instagram": 0.0
+    "youtube": 0.10,   // YouTube CPM(USD) 예: 0.10 = 0.10달러/조회 1천 회
+    "tiktok":  0.10,   // TikTok CPM
+    "instagram": 0.10  // Instagram CPM
   }
 }

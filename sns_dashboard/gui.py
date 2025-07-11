@@ -7,9 +7,11 @@ from .config import load_config, save_config
 class SetupGUI:
     def __init__(self, master: tk.Tk):
         self.master = master
-        master.title('SNS Dashboard Setup')
+        master.title("SNS Dashboard Setup")
 
-        self.entries = {}
+        self.entries: dict[str, tk.Entry] = {}
+
+        # (라벨, 설정키) ― URL 3개 + CPM 3개
         fields = [
             ("YouTube Channel URL", "youtube_url"),
             ("TikTok Channel URL", "tiktok_url"),
@@ -19,17 +21,20 @@ class SetupGUI:
             ("Instagram CPM", "rate_instagram"),
         ]
 
-        for i, (label_text, key) in enumerate(fields):
-            tk.Label(master, text=label_text).grid(row=i, column=0, sticky='e', pady=2, padx=2)
-            entry = tk.Entry(master, width=40)
+        for i, (label, key) in enumerate(fields):
+            tk.Label(master, text=label).grid(row=i, column=0, sticky="e", pady=2, padx=2)
+            entry = tk.Entry(master, width=45)
             entry.grid(row=i, column=1, pady=2, padx=2)
             self.entries[key] = entry
 
-        tk.Button(master, text='Save', command=self.save).grid(row=len(fields), column=0, columnspan=2, pady=10)
+        tk.Button(master, text="Save", command=self.save).grid(
+            row=len(fields), column=0, columnspan=2, pady=10
+        )
 
         self.load_existing()
 
-    def load_existing(self):
+    # 기존 config.json 값 채워 넣기
+    def load_existing(self) -> None:
         data = load_config()
         for key, entry in self.entries.items():
             if key.startswith("rate_"):
@@ -41,26 +46,30 @@ class SetupGUI:
                 entry.delete(0, tk.END)
                 entry.insert(0, str(value))
 
-    def save(self):
+    # Save 버튼 동작
+    def save(self) -> None:
         data = load_config()
-        for key, entry in self.entries.items():
-            if key.startswith("rate_"):
-                continue
-            data[key] = entry.get().strip()
+
+        # URL 저장
+        for key in ["youtube_url", "tiktok_url", "instagram_url"]:
+            data[key] = self.entries[key].get().strip()
+
+        # CPM 저장
         rates = data.get("rates", {})
         rates["youtube"] = float(self.entries["rate_youtube"].get() or 0)
         rates["tiktok"] = float(self.entries["rate_tiktok"].get() or 0)
         rates["instagram"] = float(self.entries["rate_instagram"].get() or 0)
         data["rates"] = rates
+
         save_config(data)
         messagebox.showinfo("Saved", "Configuration saved.")
 
 
-def run():
+def run() -> None:
     root = tk.Tk()
     SetupGUI(root)
     root.mainloop()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run()
